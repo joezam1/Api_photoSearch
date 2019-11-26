@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import store from  '../../../../store/index.js';
 
 class SearchNotification extends React.Component{
   constructor(props){
@@ -9,8 +8,6 @@ class SearchNotification extends React.Component{
   }
 
   componentDidUpdate(prevProps, prevState){
-    var currentState= store.getState();
-    var searchText =currentState.search.text;
     var searchInfo = this.props.dataItems;
     if(searchInfo !== undefined && Object.prototype.toString.apply(searchInfo)&& !Array.isArray(searchInfo) ){
       this.flickrPage = searchInfo.photos.page;
@@ -18,7 +15,7 @@ class SearchNotification extends React.Component{
   }
 
   render (){
-    var flickrPage =(this.flickrPage !==0 && this.flickrPage !=="0" && this.flickrPage !="")? this.flickrPage :"";
+    var flickrPage =(this.flickrPage !==0 && this.flickrPage !=="0" && this.flickrPage !=="")? this.flickrPage :"";
     var itemsFound = (this.props.itemsQtyResponse !=="" && this.props.itemsQtyResponse !== 0 && this.props.itemsQtyResponse !=="0")? this.props.itemsQtyResponse  :"";
     return(<section className="search-notification-container">
             <ul className="search-notification">

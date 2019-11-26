@@ -24,7 +24,7 @@ export default class SelectorDisplay extends React.Component{
     var currentQtyOnDisplay = currentState.selector.qtyOnDisplay;
     var previousQtyOnDisplay = currentState.selector.previousQtyOnDisplay;
     var currentSize = this.getBrowserCurrentSize();
-    if(currentSize !==null && currentSize != undefined){
+    if(currentSize !==null && currentSize !== undefined){
       if(currentSize.width <768) {
         if(itemsQtyResponse !==currentQtyOnDisplay){
           store.dispatch(setSelectorDisplay(itemsQtyResponse));
@@ -41,7 +41,6 @@ export default class SelectorDisplay extends React.Component{
   }
 
   getBrowserCurrentSize(){
-    var root = document.getElementById('root');
     var size = {
       width: (window.innerWidth > document.body.clientWidth)? window.innerWidth : document.body.clientWidth,
       height: (window.innerHeight > document.body.clientHeight)? window.innerHeight : document.body.clientHeight
@@ -53,13 +52,13 @@ export default class SelectorDisplay extends React.Component{
     var currentState= store.getState();
     var previousQtyOnDisplay = currentState.selector.previousQtyOnDisplay
     var id = event.target.value;
-    var idInt = parseInt(id);
+    var idInt = Number(id);
     if(!isNaN(idInt)){
       store.dispatch(setSelectorDisplay(idInt));
       store.dispatch(setPreviousSelectorDisplay(previousQtyOnDisplay));
     }
   }
-  
+
   render(){
     return(<section className="radio-buttons-container">
               <div>

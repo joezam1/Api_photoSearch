@@ -1,9 +1,9 @@
 import React from 'react';
 import store from '../../../../store/index.js';
-import {removeSearchText, searchInProgress,setDataItems,setItemsQtyResponse} from '../../../../actions/actionCreators.js';
+import {searchInProgress,setItemsQtyResponse} from '../../../../actions/actionCreators.js';
 import {connect} from 'react-redux';
 import * as api from '../../../../api/index.js';
-import $ from 'jquery';
+//import $ from 'jquery';
 
 export class ItemsGallery extends React.Component{
   constructor(props){
@@ -51,7 +51,7 @@ export class ItemsGallery extends React.Component{
                          return <div key={item.id} className="card" >
                                   <div className="item-container" >
                                       <h3 key={index} className="item-owner-name"  >{item.ownername}</h3>
-                                      <img key={item.id}  src={"https://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + '_' + item.secret + ".jpg"} className="photo-image"/>
+                                      <img key={item.id} alt="returned-from-search" src={"https://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + '_' + item.secret + ".jpg"} className="photo-image"/>
                                   </div>
                                 </div>
                         }) :"";
